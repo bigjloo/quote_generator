@@ -34,12 +34,16 @@ class Quote extends React.Component {
         return (
             <div id="quote-box">
                 <div className="quote-top">
-                    <div id="text">{this.state.quote}</div>
-                    <div id="author">Kanye West</div>
+                    <div id="text" className="color-change"><blockquote><span id="html-quote">&#8220;</span>{this.state.quote}</blockquote></div>
+                    <div id="author" className="color-change">- Kanye West</div>
                 </div>
                 <div className="quote-box-footer">
-                    <button id="new-quote" onClick={this.getQuote.bind(this)}>New Quote</button>
-                    <i id="tweet-quote" class="fab fa-twitter-square"></i>
+                    <div className="left-col">
+                        <i id="tweet-quote" class="fab fa-twitter-square"></i>
+                    </div>
+                    <div className="right-col">
+                        <button className="color-change" id="new-quote" onClick={this.getQuote.bind(this)}>New Quote</button>
+                    </div>
                 </div>
             </div>
         )
