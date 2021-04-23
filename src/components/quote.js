@@ -1,6 +1,7 @@
 import React from 'react'
 import './quote.css'
 import axios from 'axios'
+import $ from 'jquery'
 
 const KANYE_API = "https://api.kanye.rest/"
 
@@ -8,7 +9,8 @@ class Quote extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            quote: 'initialized text'
+            quote: 'initialized text',
+            colorArr: ['red', 'green', 'blue']
         }
     }
 
@@ -28,6 +30,22 @@ class Quote extends React.Component {
         })
     }
 
+    handleClick(){
+        this.getQuote()
+        let randomColor = this.selectRandomColor()
+        this.changeColor(randomColor)
+    }
+
+    changeColor(color){
+        $('body').css('background-color', color)
+        $('.color-change').css('color', color)
+    }
+
+    selectRandomColor(){
+        let randomColor = this.state.colorArr[Math.floor(Math.random()*this.state.colorArr.length)];
+        return randomColor
+    }
+
 
 
     render(){
@@ -42,7 +60,7 @@ class Quote extends React.Component {
                         <i id="tweet-quote" class="fab fa-twitter-square"></i>
                     </div>
                     <div className="right-col">
-                        <button className="color-change" id="new-quote" onClick={this.getQuote.bind(this)}>New Quote</button>
+                        <button className="color-change" id="new-quote" onClick={this.handleClick.bind(this)}>New Quote</button>
                     </div>
                 </div>
             </div>
