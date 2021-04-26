@@ -1,14 +1,24 @@
-.color-change {
-  color: green;
-}
+
 
 body {
-  background-color: green;
   font-family: 'Raleway', sans-serif;
 }
 
 #root {
-  border: 10px solid red;
+  --varcolor: '';
+  background-color: teal;
+}
+
+.bgcolor-animation {
+  animation-name: color-animate;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes color-animate {
+  100%{
+    background-color: var(--varcolor);
+  }
 }
 
 .App {
@@ -20,28 +30,31 @@ body {
 }
 
 #quote-box {
+  border-radius: 0.5em;
+  z-index: 1;
   position: relative;
   margin: auto;
   width: 550px;
   min-height: 250px;
-  border: 3px solid black;
   background-color: white;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: "quote quote quote" "quote quote quote" "tweet . button";
+      grid-template-areas: "quote quote quote"
+ "quote quote quote"
+ "tweet . button";
 }
 
 .html-quote {
   font-size: 50px;
+  color: var(--varcolor);
 }
-
 blockquote {
   font-size: 2em;
 }
 
 #text {
   width: 100%;
-  border: 3px solid red;
+  color: var(--varcolor);
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
@@ -54,30 +67,80 @@ blockquote {
       align-self: center;
 }
 
+.fade {
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.color-fade-animation {
+  -webkit-animation-name: color-fade;
+          animation-name: color-fade;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+@-webkit-keyframes color-fade {
+  0% {
+    --color: 
+    ;
+  }
+  100% {
+    --color: 
+    ;
+  }
+}
+
+@keyframes color-fade {
+  0% {
+    --color: 
+    ;
+  }
+  100% {
+    --color: 
+    ;
+  }
+}
+
 #author {
-  border: 3px solid blue;
   padding: 30px;
   float: right;
 }
 
-/*
-  .quote-box-footer {
-    border: 3px solid purple;
-    height: 100px;
-    width: 600px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  */
 .left-col {
-  border: 3px solid green;
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: tweet;
 }
 
 .right-col {
-  border: 3px solid green;
   -ms-grid-row: 3;
   -ms-grid-column: 3;
   grid-area: button;
@@ -85,12 +148,13 @@ blockquote {
 
 #new-quote {
   margin: 30px;
-  border: 5px solid black;
   font-size: 20px;
+  color: var(--varcolor);
+  border-radius: 5px;
+  border-color: var(--varcolor)
 }
 
 #tweet-quote {
   font-size: 40px;
   margin: 30px;
 }
-/*# sourceMappingURL=App.css.map */
