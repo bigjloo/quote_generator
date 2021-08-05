@@ -1,5 +1,7 @@
 # Kanye West random Quotes
-https://reverent-euler-9756fa.netlify.app/
+![.](./quote_generator.gif)
+
+DEMO: https://reverent-euler-9756fa.netlify.app/
 * CSS
 * React
 * JQuery
